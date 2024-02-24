@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.font as tkfont
 
+
 def write(char):
     entry.config(state="normal")
     entry.insert(tk.INSERT, char)
@@ -12,6 +13,11 @@ def cls():
     entry.delete('1.0', tk.END)
     entry.config(state="disabled")
 
+
+def equal():
+    solution = eval(entry.get('1.0', tk.END))
+    cls()
+    write(solution)
 
 def backspace():
     pass
@@ -65,5 +71,41 @@ button7.grid(row=1, column=2)
 
 button8 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="/", font=buttonfont, command=lambda: write("/"))
 button8.grid(row=1, column=3)
+
+button9 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="4", font=buttonfont, command=lambda: write("4"))
+button9.grid(row=2, column=0)
+
+button10 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="5", font=buttonfont, command=lambda: write("5"))
+button10.grid(row=2, column=1)
+
+button11 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="6", font=buttonfont, command=lambda: write("6"))
+button11.grid(row=2, column=2)
+
+button12 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="*", font=buttonfont, command=lambda: write("*"))
+button12.grid(row=2, column=3)
+
+button13 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="1", font=buttonfont, command=lambda: write("1"))
+button13.grid(row=3, column=0)
+
+button14 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="2", font=buttonfont, command=lambda: write("2"))
+button14.grid(row=3, column=1)
+
+button15 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="3", font=buttonfont, command=lambda: write("3"))
+button15.grid(row=3, column=2)
+
+button16 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="-", font=buttonfont, command=lambda: write("-"))
+button16.grid(row=3, column=3)
+
+button17 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="0", font=buttonfont, command=lambda: write("0"))
+button17.grid(row=4, column=0)
+
+button18 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text=",", font=buttonfont, command=lambda: write(","))
+button18.grid(row=4, column=1)
+
+button19 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="=", font=buttonfont, command=equal)
+button19.grid(row=4, column=2)
+
+button20 = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text="+", font=buttonfont, command=lambda: write("+"))
+button20.grid(row=4, column=3)
 
 root.mainloop()
