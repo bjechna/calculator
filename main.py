@@ -19,8 +19,11 @@ def equal():
     cls()
     write(solution)
 
+
 def backspace():
-    pass
+    newtext = entry.get('1.0', tk.END)[:-2]
+    cls()
+    write(newtext)
 
 
 root = tk.Tk()
