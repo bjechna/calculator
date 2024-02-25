@@ -25,6 +25,12 @@ def backspace():
     cls()
     write(newtext)
 
+def create_button(key, value):
+    if isinstance(value, str):
+        button = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text=key, bg=bg, font=buttonfont, command=lambda: write(button.cget('text')))
+    else:
+        button = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text=key, bg=bg, font=buttonfont, command=value)
+    button.pack()
 
 root = tk.Tk()
 root.geometry("327x429")
@@ -74,11 +80,7 @@ buttonframe = tk.Frame(mainframe, bg="red")
 buttonframe.pack(fill="both")
 
 for key, value in buttons.items():
-    if isinstance(value, str):
-        button = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text=key, bg=specialbg, font=buttonfont, command=lambda: write(value))
-    else:
-        button = tk.Button(buttonframe, height=int(buttonsize/2), width=buttonsize, text=key, bg=specialbg, font=buttonfont, command=value)
-    button.pack()
+    create_button(key, value)
 
 
 root.mainloop()
